@@ -73,4 +73,5 @@ data = pd.DataFrame([{
 pred_log = model.predict(data)[0]
 pred_cost = np.expm1(pred_log)
 
-st.subheader(f"Predicted Total Cost: ₹{pred_cost:.2f}")
+st.subheader(f"Predicted Total Cost: ${pred_cost:.2f}")
+
