@@ -10,11 +10,19 @@ with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
 # Streamlit UI
-st.title("Cylinder Cost Prediction")
+st.title("Cylinder Cost Prediction-Columbus")
+# Inputs
+# Bore
+col1, col2 = st.columns([3, 1])
+with col1:
+    bore = st.slider("Bore", 0.0, 20.0, 0.5, 0.1, key="bore_slider")
+with col2:
+    bore_input = st.number_input(" ", 0.0, 20.0, value=bore, step=0.1, key="bore_input")
+    if bore_input != bore:
+        bore = bore_input
 
-import streamlit as st
-
-ns([3, 1])
+# Stroke
+col3, col4 = st.columns([3, 1])
 with col3:
     stroke = st.slider("Stroke", 0.0, 500.0, 100.0, 1, key="stroke_slider")
 with col4:
