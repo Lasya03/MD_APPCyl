@@ -74,5 +74,8 @@ pred_log = model.predict(data)[0]
 pred_cost = np.expm1(pred_log)
 
 st.subheader(f"Predicted Total Cost: ${pred_cost:.2f}")
-
-
+st.set_page_config(
+    page_title="CylCostEstimator-Columbus",  # This sets the browser tab title
+    page_icon="🛠️",  # Optional
+    layout="centered"
+)
