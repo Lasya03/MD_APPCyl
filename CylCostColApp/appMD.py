@@ -55,7 +55,11 @@ with col8:
 if rod > bore:
     st.error("Rod cannot be greater than Bore!")
     rod = bore  # Automatically adjust Rod to Bore value
-
+# Displaying the final values
+st.write(f"Bore: {bore}")
+st.write(f"Stroke: {stroke}")
+st.write(f"RPC: {rpc}")
+st.write(f"Rod: {rod}")
 
 # Yes/No Inputs (converted to 0/1)
 rbearing = st.selectbox("R bearing", ["No", "Yes"])
