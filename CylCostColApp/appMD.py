@@ -3,9 +3,12 @@ import pickle
 import pandas as pd
 import numpy as np
 
-# Load the saved model
-with open('modelMD.pkl', 'rb') as f:
+import os
+#load the file
+model_path = os.path.join(os.path.dirname(__file__), 'modelMD.pkl')
+with open(model_path, 'rb') as f:
     model = pickle.load(f)
+
 
 # Function to preprocess input
 def preprocess_input(R_bearing, B_bearing, Block, Val_A, Bore, Stroke, RPC, Rod):
