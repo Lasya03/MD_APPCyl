@@ -12,42 +12,49 @@ with open(model_path, 'rb') as f:
 # Streamlit UI
 st.title("Cylinder Cost Prediction")
 
+import streamlit as st
+
 # Inputs
 # Bore
 col1, col2 = st.columns([3, 1])
 with col1:
-    bore = st.slider("Bore", 50.0, 300.0, 100.0, 1.0, key="bore_slider")
+    bore = st.slider("Bore", 0.0, 20.0, 0.5, 0.1, key="bore_slider")
 with col2:
-    bore_input = st.number_input(" ", 50.0, 300.0, value=bore, step=1.0, key="bore_input")
+    bore_input = st.number_input(" ", 0.0, 20.0, value=bore, step=0.1, key="bore_input")
     if bore_input != bore:
         bore = bore_input
 
 # Stroke
 col3, col4 = st.columns([3, 1])
 with col3:
-    stroke = st.slider("Stroke", 50.0, 2000.0, 300.0, 10.0, key="stroke_slider")
+    stroke = st.slider("Stroke", 0.0, 500.0, 100.0, 1, key="stroke_slider")
 with col4:
-    stroke_input = st.number_input("  ", 50.0, 2000.0, value=stroke, step=10.0, key="stroke_input")
+    stroke_input = st.number_input("  ", 0.0, 500.0, value=stroke, step=1, key="stroke_input")
     if stroke_input != stroke:
         stroke = stroke_input
 
 # RPC
 col5, col6 = st.columns([3, 1])
 with col5:
-    rpc = st.slider("RPC", 1.0, 10.0, 2.0, 0.1, key="rpc_slider")
+    rpc = st.slider("RPC",  0.0, 500.0, 100.0, 0.1, key="rpc_slider")
 with col6:
-    rpc_input = st.number_input("   ", 1.0, 10.0, value=rpc, step=0.1, key="rpc_input")
+    rpc_input = st.number_input("   ", 0.0, 500.0, value=rpc, step=0.1, key="rpc_input")
     if rpc_input != rpc:
         rpc = rpc_input
 
 # Rod
 col7, col8 = st.columns([3, 1])
 with col7:
-    rod = st.slider("Rod", 20.0, 150.0, 50.0, 1.0, key="rod_slider")
+    rod = st.slider("Rod", 0.0, 20.0, 2.0, 0.5, key="rod_slider")
 with col8:
-    rod_input = st.number_input("    ", 20.0, 150.0, value=rod, step=1.0, key="rod_input")
+    rod_input = st.number_input("    ", 0.0, 20.0, value=rod, step=0.5, key="rod_input")
     if rod_input != rod:
         rod = rod_input
+
+# Validation to ensure Rod is not greater than Bore
+if rod > bore:
+    st.error("Rod cannot be greater than Bore!")
+    rod = bore  # Automatically adjust Rod to Bore value
 
 
 # Yes/No Inputs (converted to 0/1)
