@@ -14,18 +14,7 @@ st.title("Cylinder Cost Prediction")
 
 import streamlit as st
 
-# Inputs
-# Bore
-col1, col2 = st.columns([3, 1])
-with col1:
-    bore = st.slider("Bore", 0.0, 20.0, 0.5, 0.1, key="bore_slider")
-with col2:
-    bore_input = st.number_input(" ", 0.0, 20.0, value=bore, step=0.1, key="bore_input")
-    if bore_input != bore:
-        bore = bore_input
-
-# Stroke
-col3, col4 = st.columns([3, 1])
+ns([3, 1])
 with col3:
     stroke = st.slider("Stroke", 0.0, 500.0, 100.0, 1, key="stroke_slider")
 with col4:
@@ -50,17 +39,6 @@ with col8:
     rod_input = st.number_input("    ", 0.0, 20.0, value=rod, step=0.5, key="rod_input")
     if rod_input != rod:
         rod = rod_input
-
-# Validation to ensure Rod is not greater than Bore
-if rod > bore:
-    st.error("Rod cannot be greater than Bore!")
-    rod = bore  # Automatically adjust Rod to Bore value
-# Displaying the final values
-st.write(f"Bore: {bore}")
-st.write(f"Stroke: {stroke}")
-st.write(f"RPC: {rpc}")
-st.write(f"Rod: {rod}")
-
 # Yes/No Inputs (converted to 0/1)
 rbearing = st.selectbox("R bearing", ["No", "Yes"])
 bbearing = st.selectbox("B bearing", ["No", "Yes"])
