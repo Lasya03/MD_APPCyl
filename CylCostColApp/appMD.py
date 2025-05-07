@@ -34,10 +34,10 @@ data = pd.DataFrame([{
     'Bore_RPC': bore * rpc,
     'Bore_Stroke': rpc * stroke,
     'Bore_Rod': bore * rod,
-    'R bearing_1': 1 if rbearing == 'Yes' else 0,
-    'B bearing_1': 1 if bbearing == 'Yes' else 0,
-    'Block_1': 1 if block == 'Yes' else 0,
-    'Val A_1': 1 if vala == 'Yes' else 0
+    'R bearing_Y': 1 if rbearing == 'Yes' else 0,
+    'B bearing_Y': 1 if bbearing == 'Yes' else 0,
+    'Block_Y': 1 if block == 'Yes' else 0,
+    'Val A_Y': 1 if vala == 'Yes' else 0
 }])
 
 # Predict
