@@ -24,9 +24,9 @@ with col2:
 # Stroke
 col3, col4 = st.columns([3, 1])
 with col3:
-    stroke = st.slider("Stroke", 0.0, 500.0, 100.0, 1, key="stroke_slider")
+    stroke = st.slider("Stroke", 0.0, 500.0, 100.0, 1.0, key="stroke_slider")
 with col4:
-    stroke_input = st.number_input("  ", 0.0, 500.0, value=stroke, step=1, key="stroke_input")
+    stroke_input = st.number_input("  ", 0.0, 500.0, value=stroke, step=1.0, key="stroke_input")
     if stroke_input != stroke:
         stroke = stroke_input
 
