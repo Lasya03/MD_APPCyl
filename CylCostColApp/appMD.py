@@ -74,4 +74,8 @@ pred_log = model.predict(data)[0]
 pred_cost = np.expm1(pred_log)
 
 st.subheader(f"Predicted Total Cost: ${pred_cost:.2f}")
+# Set the URL of the deployed app (manually provided after deployment)
+app_url = "https://CylCostEstCol.streamlit.app/"
 
+# Display a clickable link with the name 'CylindercostColumbus'
+st.markdown(f"[CylindercostColumbus]({app_url})")
