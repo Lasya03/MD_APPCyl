@@ -13,10 +13,42 @@ with open(model_path, 'rb') as f:
 st.title("Cylinder Cost Prediction")
 
 # Inputs
-bore = st.number_input("Bore", value=100.0)
-stroke = st.number_input("Stroke", value=100.0)
-rpc = st.number_input("RPC", value=1.0)
-rod = st.number_input("Rod", value=100.0)
+# Bore
+col1, col2 = st.columns([3, 1])
+with col1:
+    bore = st.slider("Bore", 50.0, 300.0, 100.0, 1.0, key="bore_slider")
+with col2:
+    bore_input = st.number_input(" ", 50.0, 300.0, value=bore, step=1.0, key="bore_input")
+    if bore_input != bore:
+        bore = bore_input
+
+# Stroke
+col3, col4 = st.columns([3, 1])
+with col3:
+    stroke = st.slider("Stroke", 50.0, 2000.0, 300.0, 10.0, key="stroke_slider")
+with col4:
+    stroke_input = st.number_input("  ", 50.0, 2000.0, value=stroke, step=10.0, key="stroke_input")
+    if stroke_input != stroke:
+        stroke = stroke_input
+
+# RPC
+col5, col6 = st.columns([3, 1])
+with col5:
+    rpc = st.slider("RPC", 1.0, 10.0, 2.0, 0.1, key="rpc_slider")
+with col6:
+    rpc_input = st.number_input("   ", 1.0, 10.0, value=rpc, step=0.1, key="rpc_input")
+    if rpc_input != rpc:
+        rpc = rpc_input
+
+# Rod
+col7, col8 = st.columns([3, 1])
+with col7:
+    rod = st.slider("Rod", 20.0, 150.0, 50.0, 1.0, key="rod_slider")
+with col8:
+    rod_input = st.number_input("    ", 20.0, 150.0, value=rod, step=1.0, key="rod_input")
+    if rod_input != rod:
+        rod = rod_input
+
 
 # Yes/No Inputs (converted to 0/1)
 rbearing = st.selectbox("R bearing", ["No", "Yes"])
