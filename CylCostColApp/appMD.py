@@ -78,4 +78,5 @@ st.subheader(f"Predicted Total Cost: ${pred_cost:.2f}")
 app_url = "https://CylCostEstCol.streamlit.app/"
 
 # Display a clickable link with the name 'CylindercostColumbus'
-st.markdown(f"[CylindercostColumbus]({app_url})")
+st.write(f"[CylindercostColumbus]({app_url})")
+
